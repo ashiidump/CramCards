@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title desc">
+  <title id="title">CramCards logo</title>
+  <desc id="desc">A navy rounded-square study card stack with emerald and gold accents beside the CramCards wordmark.</desc>
+
+  <defs>
+    <linearGradient id="cardGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34D399"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0F172A" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(18 18)" filter="url(#shadow)">
+    <rect x="18" y="10" width="134" height="134" rx="30" fill="#F5B942" transform="rotate(7 85 77)"/>
+    <rect x="9" y="5" width="134" height="134" rx="30" fill="url(#cardGlow)" transform="rotate(-5 76 72)"/>
+    <rect width="134" height="134" rx="30" fill="#0F172A"/>
+
+    <!-- Layered study cards -->
+    <rect x="27" y="28" width="80" height="58" rx="10" fill="#FFFFFF" opacity=".98"/>
+    <rect x="34" y="39" width="43" height="7" rx="3.5" fill="#0F172A" opacity=".9"/>
+    <rect x="34" y="53" width="61" height="6" rx="3" fill="#CBD5E1"/>
+    <rect x="34" y="65" width="48" height="6" rx="3" fill="#CBD5E1"/>
+
+    <!-- Flashcard tab -->
+    <path d="M29 96h45c5.5 0 10 4.5 10 10v4c0 5.5-4.5 10-10 10H29c-5.5 0-10-4.5-10-10v-4c0-5.5 4.5-10 10-10Z" fill="#10B981"/>
+    <path d="M42 106h24" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Gold accent / check mark -->
+    <circle cx="102" cy="105" r="22" fill="#F5B942"/>
+    <path d="m92 105 7 7 14-16" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(190 0)">
+    <text x="0" y="105" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-2">Cram<tspan fill="#10B981">Cards</tspan></text>
+    <text x="4" y="137" fill="#64748B" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="4">STUDY SMARTER · EXAM READY</text>
+  </g>
+</svg>
