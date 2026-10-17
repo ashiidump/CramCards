@@ -1,137 +1,447 @@
-# CramCards — Verified Review Sets
+# CramCards
 
-> **Subject-specific reviewer sets for college students**
->
-> A Business Analytics and Event-Driven Programming final project by Cebu Eastern College students.
+> **Master Your Exams with Laminated Reviewers**
 
-## Project Overview
+CramCards is a student business project that provides affordable, subject-specific, condensed study and reviewer sets for college students. The website presents the business concept and demonstrates event-driven programming with Python in the browser through PyScript.
 
-CramCards is a student-made reviewer-set business that creates compact, subject-specific study materials for college students. Each set combines topic summaries, key-term or formula sheets, flashcards, and practice prompts in a format designed for the final days before an exam.
+## Project Information
 
-The first product line focuses on **BSIT Programming subjects**, where students often need a fast and reliable way to review concepts such as variables, loops, functions, arrays, and logic. Sets are available as printed, digital, or printed-plus-digital bundles and are prepared for campus pickup after order confirmation.
+- **School:** Cebu Eastern College, Inc.
 
-The website demonstrates how a business concept can be presented through a functional website while applying **PyScript** and **event-driven programming**.
+- **Department:** College of Information Technology
 
-## Group Members
+- **Project:** EVD — Event-Driven Programming and Business Analytics Final Project
 
-| Member | Suggested contribution area |
-| --- | --- |
-| Arcala, Ashley Rochell B. | Business concept, research, and content |
-| Probadora, Michael | PyScript interactions and order customizer |
-| Apolinar, Geean | Website layout, responsive styling, and visual design |
-| Estores, Adrian | Feasibility-study data, evidence section, and calculator |
-| Capul, Rolan | Testing, documentation, presentation, and GitHub organization |
+- **Business name:** CramCards
 
-> Update the contribution areas to reflect the work each member actually completed. Every member should make meaningful commits to this repository.
+- **Primary audience:** BSIT students
+
+- **Initial subject focus:** Programming
 
 ## Business Concept
 
-| Item | CramCards decision |
-| --- | --- |
-| Business type | Printed, laminated, and digital study/review materials |
-| Initial target market | College students, beginning with BSIT students |
-| First subject focus | Programming Foundations |
-| Base selling price | ₱40 per set |
-| Estimated variable cost | ₱20 per set |
-| Main differentiator | Student-made and accuracy-checked content designed for a specific course |
-| Order pathway | Website estimate, Messenger or Google Form confirmation, campus pickup |
+CramCards creates compact study materials containing topic summaries, formula sheets, key terms, flashcards, and practice prompts. The materials are designed for quick review before exams and are available as printed, digital, or bundled products.
 
-The feasibility study found that **96.8%** of respondents were open to the idea by answering “Yes” or “Maybe,” **77.4%** wanted printed materials in some form, and **67.7%** considered accuracy and completeness their most important purchasing factor. The initial survey included 31 college students and was concentrated among BSIT respondents, so the business begins as a small Programming pilot.
+The initial target market is BSIT students because Programming was identified as one of the most difficult subjects in the group's survey. The product range shown in the website includes Programming, Statistics, and Accounting reviewer sets.
+
+## Product Pricing
+
+| Format | Price |
+| --- | --- |
+| Printed and laminated reviewer | ₱40 |
+| Digital PDF reviewer | ₱30 |
+| Printed + Digital Bundle | ₱50 |
+| Practice sets add-on | +₱10 |
+
+### Feasibility assumptions
+
+- **Variable cost per set:** ₱20
+
+- **Fixed m**
+
+<!DOCTYPE html> <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CramCards — subject-specific laminated reviewers for college students." />
+  <title>CramCards | Master Your Exams</title>   <!-- Tailwind CSS -->   <script src="https://cdn.tailwindcss.com"></script>   <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F172A',
+            emerald: '#10B981',
+            gold: '#F5B942',
+            ink: '#172033'
+          },
+          boxShadow: {
+            soft: '0 18px 50px rgba(15, 23, 42, .10 )',
+            card: '0 10px 30px rgba(15, 23, 42, .08)'
+          }
+        }
+      }
+    };
+  </script>   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>   <style>
+    :root { color-scheme: light; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #f8fafc; color: #172033; }
+    h1, h2, h3, h4, .brand { font-family: 'Space Grotesk', sans-serif; }
+    .hero-grid { background-image: linear-gradient(rgba(255,255,255,.06 ) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 32px 32px; }
+    .gradient-text { background: linear-gradient(110deg, #34d399, #f5b942); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .glass { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(14px); }
+    .product-card { transition: transform .25s ease, box-shadow .25s ease; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 35px rgba(15,23,42,.13); }
+    .bar-fill { transition: width .45s ease; }
+    input[type=range] { accent-color: #10B981; }
+    .toast { animation: slideIn .25s ease-out; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  </style> </head>
+<body>
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-lg">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="#top" class="brand flex items-center gap-3 text-xl font-bold text-navy" aria-label="CramCards home">
+        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-navy text-gold shadow-lg"><i class="fa-solid fa-layer-group"></i></span>
+        <span>Cram<span class="text-emerald">Cards</span><small class="ml-1 align-top text-[10px] font-bold uppercase tracking-widest text-slate-400">PH</small></span>
+      </a>
+      <nav class="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex" aria-label="Primary navigation">
+        <a class="transition hover:text-emerald" href="#products">Products</a>
+        <a class="transition hover:text-emerald" href="#insights">Insights</a>
+        <a class="transition hover:text-emerald" href="#simulator">Simulator</a>
+        <a class="rounded-full bg-emerald px-5 py-2.5 text-white shadow-lg shadow-emerald/20 transition hover:bg-emerald-600" href="#order">Build an order <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a>
+      </nav>
+      <a class="text-slate-500 md:hidden" href="#order" aria-label="Jump to order calculator"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+  </header>   <main id="top">
+    <!-- Hero -->
+    <section class="hero-grid relative overflow-hidden bg-navy text-white">
+      <div class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-emerald/20 blur-3xl"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-28">
+        <div class="relative z-10">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald/30 bg-emerald/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-emerald-300"><span class="h-2 w-2 animate-pulse rounded-full bg-emerald"></span> Made for Cebu students</div>
+          <h1 class="max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">Master your exams with <span class="gradient-text">laminated reviewers.</span></h1>
+          <p class="mt-7 max-w-xl text-lg leading-8 text-slate-300">CramCards turns overwhelming subjects into compact, accurate, and exam-ready study sets — made for the way college students actually cram.</p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="#order" class="rounded-xl bg-emerald px-6 py-3.5 font-bold text-white shadow-xl shadow-emerald/20 transition hover:-translate-y-0.5 hover:bg-emerald-500">Create your set <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            <a href="#products" class="rounded-xl border border-white/20 px-6 py-3.5 font-bold text-white transition hover:bg-white/10">Explore products</a>
+          </div>
+          <div class="mt-12 grid max-w-lg grid-cols-3 gap-5 border-t border-white/10 pt-7">
+            <div><p class="text-2xl font-bold text-white">77.4%</p><p class="mt-1 text-xs text-slate-400">prefer printed</p></div>
+            <div><p class="text-2xl font-bold text-white">67.7%</p><p class="mt-1 text-xs text-slate-400">prioritize accuracy</p></div>
+            <div><p class="text-2xl font-bold text-white">₱40</p><p class="mt-1 text-xs text-slate-400">starting price</p></div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-5 rounded-[2rem] bg-emerald/10 blur-2xl"></div>
+          <div class="relative overflow-hidden rounded-3xl border border-white/15 bg-slate-900 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/10 px-5 py-4"><div class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-red-400"></span><span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span><span class="h-2.5 w-2.5 rounded-full bg-green-400"></span></div><span class="text-xs font-semibold text-slate-400">cramcards / study smarter</span></div>
+            <div class="relative aspect-video bg-gradient-to-br from-emerald-900 via-slate-900 to-navy p-8">
+              <div class="absolute right-8 top-8 rotate-6 rounded-lg bg-gold px-3 py-1 text-xs font-bold text-navy">EXAM MODE</div>
+              <div class="flex h-full flex-col justify-end"><p class="mb-3 text-sm font-semibold uppercase tracking-[.22em] text-emerald-300">30-second study reset</p><p class="max-w-sm text-3xl font-bold leading-tight">One card. One concept. One step closer.</p><div class="mt-7 flex items-center gap-4"><span class="flex h-14 w-14 items-center justify-center rounded-full bg-white text-navy shadow-xl"><i class="fa-solid fa-play ml-1"></i></span><span class="text-sm text-slate-300">Watch our quick intro</span></div></div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-4 text-xs text-slate-400"><span><i class="fa-solid fa-film mr-2 text-emerald"></i>Promotional preview</span><span>0:30</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+```
+<!-- Video + promise strip -->
+<section class="border-b border-slate-200 bg-white">
+  <div class="mx-auto grid max-w-7xl gap-5 px-5 py-7 sm:grid-cols-3 lg:px-8">
+    <div class="flex items-center gap-4"><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/10 text-emerald"><i class="fa-solid fa-bolt"></i></span><div><p class="font-bold text-navy">Fast to review</p><p class="text-sm text-slate-500">High-yield summaries</p></div></div>
+    <div class="flex items-center gap-4"><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-amber-600"><i class="fa-solid fa-shield-check"></i></span><div><p class="font-bold text-navy">Built for accuracy</p><p class="text-sm text-slate-500">Research-backed content</p></div></div>
+    <div class="flex items-center gap-4"><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-500"><i class="fa-solid fa-hand-holding-heart"></i></span><div><p class="font-bold text-navy">Student-priced</p><p class="text-sm text-slate-500">From just ₱30 digital</p></div></div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products" class="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+  <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p class="mb-3 text-sm font-bold uppercase tracking-[.2em] text-emerald">Pick your focus</p><h2 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Study sets that fit<br class="hidden sm:block"> your syllabus.</h2></div><p class="max-w-sm text-slate-500">Focused, condensed, and easy to carry from classroom to campus pickup.</p></div>
+  <div class="grid gap-6 md:grid-cols-3">
+    <article class="product-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card"><div class="flex h-36 items-center justify-center bg-gradient-to-br from-indigo-900 to-slate-800"><i class="fa-solid fa-code text-6xl text-emerald-300"></i><span class="absolute ml-32 mt-16 rounded-full bg-gold px-2 py-1 text-[10px] font-bold text-navy">POPULAR</span></div><div class="p-6"><div class="mb-2 flex items-center justify-between"><h3 class="text-xl font-bold text-navy">Programming</h3><span class="rounded-full bg-emerald/10 px-3 py-1 text-xs font-bold text-emerald-700">BSIT</span></div><p class="text-sm leading-6 text-slate-500">Syntax, algorithms, OOP concepts, debugging patterns, and quick code examples.</p><div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4"><span class="font-bold text-navy">₱40 <small class="font-normal text-slate-400">printed</small></span><a href="#order" data-subject="Programming" class="text-sm font-bold text-emerald hover:underline">Choose set <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a></div></div></article>
+    <article class="product-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card"><div class="flex h-36 items-center justify-center bg-gradient-to-br from-teal-800 to-emerald-600"><i class="fa-solid fa-chart-line text-6xl text-white/90"></i></div><div class="p-6"><div class="mb-2 flex items-center justify-between"><h3 class="text-xl font-bold text-navy">Statistics</h3><span class="rounded-full bg-emerald/10 px-3 py-1 text-xs font-bold text-emerald-700">BSIT</span></div><p class="text-sm leading-6 text-slate-500">Formulas, probability, descriptive statistics, and step-by-step problem solving.</p><div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4"><span class="font-bold text-navy">₱40 <small class="font-normal text-slate-400">printed</small></span><a href="#order" data-subject="Statistics" class="text-sm font-bold text-emerald hover:underline">Choose set <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a></div></div></article>
+    <article class="product-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card"><div class="flex h-36 items-center justify-center bg-gradient-to-br from-amber-700 to-gold"><i class="fa-solid fa-calculator text-6xl text-white"></i></div><div class="p-6"><div class="mb-2 flex items-center justify-between"><h3 class="text-xl font-bold text-navy">Accounting</h3><span class="rounded-full bg-gold/20 px-3 py-1 text-xs font-bold text-amber-700">CORE</span></div><p class="text-sm leading-6 text-slate-500">Accounting cycles, journal entries, financial statements, and essential terms.</p><div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4"><span class="font-bold text-navy">₱40 <small class="font-normal text-slate-400">printed</small></span><a href="#order" data-subject="Accounting" class="text-sm font-bold text-emerald hover:underline">Choose set <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a></div></div></article>
+  </div>
+</section>
+
+<!-- Insights -->
+<section id="insights" class="bg-slate-100/80 py-20"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p class="mb-3 text-sm font-bold uppercase tracking-[.2em] text-emerald">Our research</p><h2 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Designed around  
+what students need.</h2><p class="mt-5 leading-7 text-slate-600">Our business plan survey showed a clear opportunity: students want reliable, portable study materials that do not break the budget.</p><a href="#simulator" class="mt-7 inline-block font-bold text-emerald hover:underline">See the numbers in action <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></a></div><div class="rounded-3xl bg-white p-7 shadow-soft sm:p-9"><div class="mb-8 flex items-center justify-between"><div><h3 class="text-xl font-bold text-navy">Student preference snapshot</h3><p class="mt-1 text-sm text-slate-500">CramCards target-market survey</p></div><span class="rounded-xl bg-navy px-3 py-2 text-xs font-bold text-white">2026</span></div><div class="space-y-7"><div><div class="mb-2 flex justify-between text-sm font-bold"><span class="text-slate-700">Prefer printed materials</span><span class="text-emerald">77.4%</span></div><div class="h-3 overflow-hidden rounded-full bg-slate-100"><div class="bar-fill h-full rounded-full bg-emerald" style="width:77.4%"></div></div></div><div><div class="mb-2 flex justify-between text-sm font-bold"><span class="text-slate-700">Prioritize content accuracy</span><span class="text-indigo-500">67.7%</span></div><div class="h-3 overflow-hidden rounded-full bg-slate-100"><div class="bar-fill h-full rounded-full bg-indigo-500" style="width:67.7%"></div></div></div><div><div class="mb-2 flex justify-between text-sm font-bold"><span class="text-slate-700">Programming is hardest subject</span><span class="text-gold">77.4%</span></div><div class="h-3 overflow-hidden rounded-full bg-slate-100"><div class="bar-fill h-full rounded-full bg-gold" style="width:77.4%"></div></div></div><div><div class="mb-2 flex justify-between text-sm font-bold"><span class="text-slate-700">BSIT target market</span><span class="text-sky-500">80.6%</span></div><div class="h-3 overflow-hidden rounded-full bg-slate-100"><div class="bar-fill h-full rounded-full bg-sky-500" style="width:80.6%"></div></div></div></div></div></div></div></section>
+
+<!-- Order and simulator -->
+<section id="order" class="mx-auto max-w-7xl px-5 py-20 lg:px-8"><div class="mb-10"><p class="mb-3 text-sm font-bold uppercase tracking-[.2em] text-emerald">Interactive tools</p><h2 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Plan your perfect  
+study sprint.</h2></div><div class="grid gap-7 lg:grid-cols-2">
+  <div class="rounded-3xl bg-navy p-7 text-white shadow-soft sm:p-9"><div class="mb-7 flex items-start justify-between"><div><h3 class="text-2xl font-bold">Order calculator</h3><p class="mt-2 text-sm text-slate-400">Build a set and get an instant receipt.</p></div><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/20 text-emerald"><i class="fa-solid fa-receipt"></i></span></div><form id="order-form" class="space-y-5"><div><label for="subject" class="mb-2 block text-sm font-semibold text-slate-300">Subject</label><select id="subject" class="w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-emerald"><option class="text-navy">Programming</option><option class="text-navy">Statistics</option><option class="text-navy">Accounting</option></select></div><fieldset><legend class="mb-2 block text-sm font-semibold text-slate-300">Choose format</legend><div class="grid grid-cols-3 gap-2"><label class="cursor-pointer"><input class="peer sr-only" type="radio" name="format" value="Printed" data-price="40" checked><span class="block rounded-xl border border-white/10 bg-white/5 p-3 text-center text-xs transition peer-checked:border-emerald peer-checked:bg-emerald/20"><strong class="block text-sm">₱40</strong>Printed</span></label><label class="cursor-pointer"><input class="peer sr-only" type="radio" name="format" value="Digital PDF" data-price="30"><span class="block rounded-xl border border-white/10 bg-white/5 p-3 text-center text-xs transition peer-checked:border-emerald peer-checked:bg-emerald/20"><strong class="block text-sm">₱30</strong>Digital</span></label><label class="cursor-pointer"><input class="peer sr-only" type="radio" name="format" value="Bundle" data-price="50"><span class="block rounded-xl border border-white/10 bg-white/5 p-3 text-center text-xs transition peer-checked:border-emerald peer-checked:bg-emerald/20"><strong class="block text-sm">₱50</strong>Bundle</span></label></div></fieldset><div class="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4"><label for="practice" class="flex cursor-pointer items-center gap-3 text-sm"><input id="practice" type="checkbox" class="h-5 w-5 rounded accent-emerald"><span>Practice sets add-on <small class="block text-slate-400">Extra drills and answer key</small></span></label><span class="font-bold text-gold">+₱10</span></div><div><label for="quantity" class="mb-2 block text-sm font-semibold text-slate-300">Quantity</label><input id="quantity" type="number" min="1" max="99" value="1" class="w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-emerald"></div><button type="submit" class="w-full rounded-xl bg-emerald py-3.5 font-bold text-white transition hover:bg-emerald-500">Calculate total <i class="fa-solid fa-calculator ml-2"></i></button></form><div id="receipt" class="mt-6 hidden rounded-2xl border border-emerald/30 bg-emerald/10 p-5" aria-live="polite"></div></div>
+
+  <div id="simulator" class="rounded-3xl border border-slate-200 bg-white p-7 shadow-soft sm:p-9"><div class="mb-7 flex items-start justify-between"><div><h3 class="text-2xl font-bold text-navy">Profit simulator</h3><p class="mt-2 text-sm text-slate-500">Test the CramCards feasibility model.</p></div><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-amber-600"><i class="fa-solid fa-chart-pie"></i></span></div><div class="rounded-2xl bg-slate-50 p-5"><div class="flex items-end justify-between"><label for="sets-sold" class="text-sm font-semibold text-slate-600">Estimated sets sold / month</label><output id="sets-output" for="sets-sold" class="text-3xl font-bold text-navy">29</output></div><input id="sets-sold" type="range" min="0" max="100" value="29" class="mt-5 w-full cursor-pointer"><div class="mt-2 flex justify-between text-xs text-slate-400"><span>0 sets</span><span>100 sets</span></div></div><div id="breakeven-badge" class="mt-5 flex items-center gap-3 rounded-xl bg-emerald/10 px-4 py-3 text-sm font-bold text-emerald-700"><i class="fa-solid fa-circle-check"></i><span>Above break-even by 19 sets</span></div><div class="mt-7 grid grid-cols-3 gap-3"><div class="rounded-2xl border border-slate-100 p-4"><p class="text-xs font-semibold text-slate-400">Revenue</p><p id="revenue" class="mt-2 text-xl font-bold text-navy">₱1,160</p></div><div class="rounded-2xl border border-slate-100 p-4"><p class="text-xs font-semibold text-slate-400">Expenses</p><p id="expenses" class="mt-2 text-xl font-bold text-navy">₱780</p></div><div class="rounded-2xl border border-emerald/20 bg-emerald/5 p-4"><p class="text-xs font-semibold text-emerald-700">Net profit</p><p id="profit" class="mt-2 text-xl font-bold text-emerald-700">₱380</p></div></div><div class="mt-7 border-t border-slate-100 pt-5"><div class="flex justify-between text-sm"><span class="text-slate-500">Break-even threshold</span><strong class="text-navy">10 sets / month</strong></div><div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-100"><div id="profit-progress" class="h-full rounded-full bg-emerald transition-all" style="width:29%"></div></div></div></div>
+</div></section>
+
+<!-- Countdown -->
+<section class="bg-gradient-to-r from-emerald-700 to-emerald-500 text-white"><div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-5 py-12 sm:flex-row sm:items-center lg:px-8"><div><p class="mb-2 text-sm font-bold uppercase tracking-[.2em] text-emerald-100">Exam season countdown</p><h2 class="text-3xl font-bold">Make your next study day count.</h2><p id="cutoff-message" class="mt-2 text-emerald-100">Calculating your recommended campus pickup cutoff...</p></div><div class="flex gap-3 text-center"><div class="rounded-2xl bg-white/15 px-4 py-3 backdrop-blur"><strong id="count-days" class="block text-3xl font-bold">--</strong><span class="text-xs text-emerald-100">days</span></div><div class="rounded-2xl bg-white/15 px-4 py-3 backdrop-blur"><strong id="count-hours" class="block text-3xl font-bold">--</strong><span class="text-xs text-emerald-100">hours</span></div><div class="rounded-2xl bg-white/15 px-4 py-3 backdrop-blur"><strong id="count-minutes" class="block text-3xl font-bold">--</strong><span class="text-xs text-emerald-100">minutes</span></div></div></div></section>
+```
+
+</main>   <footer class="bg-navy text-white"><div class="mx-auto max-w-7xl px-5 py-12 lg:px-8"><div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]"><div><a href="#top" class="brand flex items-center gap-3 text-xl font-bold"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald text-white"><i class="fa-solid fa-layer-group"></i></span>Cram<span class="text-emerald">Cards</span></a><p class="mt-5 max-w-sm text-sm leading-6 text-slate-400">Affordable, accurate, and exam-ready reviewers for the next generation of Cebu students.</p></div><div><h4 class="font-bold">Navigate</h4><div class="mt-4 space-y-3 text-sm text-slate-400"><a class="block hover:text-emerald" href="#products">Products</a><a class="block hover:text-emerald" href="#insights">Research insights</a><a class="block hover:text-emerald" href="#order">Order calculator</a></div></div><div><h4 class="font-bold">Cebu Eastern College, Inc.</h4><p class="mt-4 text-sm leading-6 text-slate-400">College of Information Technology
+EVD & Business Analytics Final Project</p></div></div><div class="mt-10 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row"><span>© 2026 CramCards. Student project by the CEC IT team.</span><span>Built with purpose, powered by Python.</span></div></div></footer>   <div id="toast" class="pointer-events-none fixed bottom-5 right-5 z-50 hidden rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white shadow-2xl"></div>   <!-- PyScript handles the DOM events and calculations below. -->   <script type="py">
+from datetime import datetime, timedelta
+from js import document, window
+from pyodide.ffi import create_proxy
+
+PRICES = {"Printed": 40, "Digital PDF": 30, "Bundle": 50}
+
+
+def peso(value):
+    return f"₱{value:,.0f}"
+
+
+def show_toast(message):
+    toast = document.getElementById("toast")
+    toast.textContent = message
+    toast.classList.remove("hidden")
+    toast.classList.add("toast")
+    window.setTimeout(create_proxy(lambda: toast.classList.add("hidden")), 3000)
+
+
+def calculate_order(event):
+    event.preventDefault()
+    subject = document.getElementById("subject").value
+    selected = document.querySelector('input[name="format"]:checked')
+    format_name = selected.value
+    unit_price = PRICES[format_name]
+    quantity = max(1, int(document.getElementById("quantity").value or 1))
+    practice = document.getElementById("practice").checked
+    addon = 10 if practice else 0
+    total = (unit_price + addon) * quantity
+    timestamp = datetime.now().strftime("%b %d, %Y · %I:%M %p")
+    addon_line = f"<div class='flex justify-between text-slate-300'><span>Practice sets × {quantity}</span><span>{peso(addon * quantity)}</span></div>" if practice else ""
+    receipt = document.getElementById("receipt")
+    receipt.innerHTML = f"""
+      <div class='mb-4 flex items-center justify-between border-b border-emerald/20 pb-3'>
+        <div><p class='text-xs font-bold uppercase tracking-widest text-emerald-300'>Order summary</p><p class='mt-1 font-bold text-white'>{subject} Reviewer Set</p></div>
+        <i class='fa-solid fa-circle-check text-xl text-emerald-300'></i>
+      </div>
+      <div class='space-y-2 text-sm'><div class='flex justify-between text-slate-300'><span>{format_name} × {quantity}</span><span>{peso(unit_price * quantity)}</span></div>{addon_line}<div class='mt-3 flex justify-between border-t border-emerald/20 pt-3 text-base font-bold text-white'><span>Estimated total</span><span class='text-gold'>{peso(total)}</span></div></div>
+      <p class='mt-4 text-[11px] text-slate-400'><i class='fa-regular fa-clock mr-1'></i> Generated {timestamp}. This is a school-project estimate.</p>
+    """
+    receipt.classList.remove("hidden")
+    show_toast("Receipt updated successfully")
+
+
+def update_simulator(event=None):
+    sets = int(document.getElementById("sets-sold").value)
+    revenue = sets * 40
+    expenses = (sets * 20) + 200
+    profit = revenue - expenses
+    document.getElementById("sets-output").textContent = str(sets)
+    document.getElementById("revenue").textContent = peso(revenue)
+    document.getElementById("expenses").textContent = peso(expenses)
+    document.getElementById("profit").textContent = peso(profit)
+    progress = min(100, sets)
+    document.getElementById("profit-progress").style.width = f"{progress}%"
+    badge = document.getElementById("breakeven-badge")
+    if sets >= 10:
+        badge.className = "mt-5 flex items-center gap-3 rounded-xl bg-emerald/10 px-4 py-3 text-sm font-bold text-emerald-700"
+        badge.innerHTML = f"<i class='fa-solid fa-circle-check'></i><span>Above break-even by {sets - 10} sets · projected profit {peso(profit)}</span>"
+    else:
+        badge.className = "mt-5 flex items-center gap-3 rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700"
+        badge.innerHTML = f"<i class='fa-solid fa-triangle-exclamation'></i><span>{10 - sets} more sets needed to reach break-even</span>"
+
+
+def update_countdown(event=None):
+    now = datetime.now()
+    # Upcoming exam period: May 15 of the next calendar occurrence.
+    exam_year = now.year if now.month < 5 or (now.month == 5 and now.day < 15) else now.year + 1
+    exam = datetime(exam_year, 5, 15, 8, 0, 0)
+    remaining = max(timedelta(0), exam - now)
+    days = remaining.days
+    hours = remaining.seconds // 3600
+    minutes = (remaining.seconds % 3600) // 60
+    document.getElementById("count-days").textContent = str(days)
+    document.getElementById("count-hours").textContent = f"{hours:02d}"
+    document.getElementById("count-minutes").textContent = f"{minutes:02d}"
+    cutoff = (exam - timedelta(days=3)).strftime("%B %d, %Y")
+    document.getElementById("cutoff-message").textContent = f"Recommended campus pickup order cutoff: {cutoff} · Exam period starts {exam.strftime('%B %d, %Y')}"
+
+
+def set_subject(event):
+    subject = event.currentTarget.dataset.subject
+    document.getElementById("subject").value = subject
+    document.getElementById("order").scrollIntoView({"behavior": "smooth"})
+    show_toast(f"{subject} selected")
+
+# PyScript event bindings: Python is the source of truth for interactions.
+form_proxy = create_proxy(calculate_order)
+slider_proxy = create_proxy(update_simulator)
+countdown_proxy = create_proxy(update_countdown)
+document.getElementById("order-form").addEventListener("submit", form_proxy)
+document.getElementById("sets-sold").addEventListener("input", slider_proxy)
+for link in document.querySelectorAll("[data-subject]"):
+    link.addEventListener("click", create_proxy(set_subject))
+
+update_simulator()
+update_countdown()
+window.setInterval(countdown_proxy, 60000)
+  </script> </body>
+</html>
+
+
+
+- **onthly expenses:** ₱200
+
+- **Break-even threshold:** 10 sets per month
+
+- **Default simulator estimate:** 29 sets per month
+
+The feasibility simulator uses this model:
+
+```
+Revenue = Sets Sold × ₱40
+Total Expenses = (Sets Sold × ₱20) + ₱200
+Net Profit = Revenue − Total Expenses
+```
+
+## Survey Insights
+
+The website displays the following research findings:
+
+- **80.6%** of the target market are BSIT students.
+
+- **77.4%** identified Programming as the hardest subject.
+
+- **77.4%** prefer printed study materials.
+
+- **67.7%** prioritize accuracy.
+
+These figures are project survey findings rather than live market data and should be interpreted within the limitations of the student feasibility study.
 
 ## Website Features
 
-### Business website
+- Responsive CramCards landing page with deep navy, emerald, slate, and gold branding
 
-- Hero section that explains the problem CramCards solves.
-- Product catalog for Programming, Statistics, and custom subject requests.
-- Pricing and format information based on the feasibility study.
-- Ordering process from set selection to campus pickup.
-- Evidence section with survey findings and limitations.
-- Responsive layout for desktop and mobile screens.
+- Hero section with the value proposition “Master Your Exams with Laminated Reviewers”
 
-### PyScript and event-driven programming
+- Promotional video-style preview with play controls
 
-- Catalog button click events move a selected subject into the order customizer.
-- Format changes update the visual selection and price estimate.
-- Quantity input, plus, and minus events recalculate the order total.
-- Form submission is intercepted by a Python handler, validated, and displayed in a confirmation dialog.
-- The study-time calculator reads user input, performs a calculation, and updates the page without reloading.
+- Product showcase for Programming, Statistics, and Accounting
 
-The central pattern is:
+- Research insights dashboard with animated percentage bars
 
-```text
+- Interactive order and receipt calculator
+
+- Subject selector and product shortcut buttons
+
+- Printed, Digital PDF, and Bundle format options
+
+- Practice-set add-on and quantity input
+
+- Timestamped itemized receipt generated in the browser
+
+- Feasibility and profit-margin simulator
+
+- Dynamic revenue, expenses, net profit, and break-even badge
+
+- Exam countdown and recommended campus pickup cutoff date
+
+- Group member and academic project information
+
+## PyScript Event-Driven Programming
+
+Python handles the interactive behavior in the browser. The implementation is contained in the `<script type="py">` block in `index.html` and uses PyScript/Pyodide to access the DOM.
+
+The primary event flow is:
+
+```
 user event → Python event handler → calculation or validation → DOM update
 ```
 
+Python handles:
+
+- Order form submission
+
+- Format, subject, practice-set, and quantity calculations
+
+- Dynamic itemized receipt generation
+
+- Profit simulator slider updates
+
+- Break-even status changes
+
+- Countdown timer updates
+
+- Product selection click events
+
+## Technology Stack
+
+- HTML5
+
+- Tailwind CSS via CDN
+
+- Font Awesome via CDN
+
+- PyScript / Pyodide
+
+- Python `datetime` module
+
+- Responsive CSS
+
+- Google Fonts via CDN
+
 ## Project Structure
 
-```text
-.
-├── index.html                 # Main website content and page sections
-├── styles.css                 # Responsive design system and visual styling
-├── main.py                    # PyScript event handlers and DOM updates
-├── pyscript.toml              # PyScript runtime configuration
-├── manus-routes.json          # Root route manifest for static preview/publishing
-├── public/
-│   └── manus-routes.json      # Webdev route-manifest copy
-├── cramcards-logo.svg         # Brand mark
-├── app.config.ts              # Project logo metadata
-├── TODO.md                    # Project outcome checklist
-├── COMMIT_GUIDE.md            # Group Git workflow and commit guide
-└── README.md                  # This documentation
+```
+CramCards/
+├── index.html   # Complete single-file website and PyScript logic
+└── README.md    # Project documentation
 ```
 
-## Run the Website Locally
+## Run Locally
 
-The website is static and can be served with Python's built-in HTTP server:
+No build tools or package installation are required. Because the website loads PyScript and other assets from CDNs, an internet connection is recommended.
+
+### Clone the repository
 
 ```bash
-python3 -m http.server 3000 --bind 0.0.0.0
+git clone https://github.com/ashiidump/CramCards.git
+cd CramCards
 ```
 
-Open `http://localhost:3000` in a browser.
+### Start a local server
 
-The website loads PyScript and Google Fonts from CDNs, so an internet connection is needed for the complete experience. If Python is unavailable, use another static server such as VS Code Live Server.
+Using a local server is recommended for reliable PyScript behavior:
 
-## How to Demonstrate the Website
+```bash
+python3 -m http.server 8000
+```
 
-1. Introduce CramCards, the target customers, and the verified-accuracy value proposition.
-2. Scroll through the product catalog and explain why Programming is the first product line.
-3. Click **Choose this set** to move a product into the order customizer.
-4. Change the format and quantity to show the live price calculation.
-5. Submit the order demo and explain the validation and confirmation dialog.
-6. Enter different values into the study-time calculator and show the dynamic result.
-7. Show the feasibility-study evidence and explain the market limitation.
-8. Open `main.py` and trace an event from `addEventListener` to the Python handler and DOM update.
-9. Have each member explain their actual contribution and meaningful commits.
+Open the website at:
 
-## Data and Business Assumptions
+```
+http://localhost:8000
+```
 
-The content is based on the group's feasibility study, not on live sales data. The main assumptions are:
+You can also open `index.html` directly in a modern browser, although browser security rules may affect some CDN or PyScript behavior when using the `file://` protocol.
 
-- ₱40 selling price per set.
-- ₱20 estimated variable cost per set.
-- A reachable initial market of approximately 150 students.
-- Demand concentrated around exam periods.
-- Campus pickup and direct social-media ordering rather than online payment.
+## Demo Walkthrough
 
-The feasibility decision is **feasible with conditions**: begin with a small Programming pilot, verify every set for accuracy, keep costs near ₱20 per set, and measure actual sales before expanding to other subjects.
+1. Review the hero section and explain the CramCards value proposition.
 
-## Academic Project Information
+1. Explore the Programming, Statistics, and Accounting product cards.
 
-- **Course:** FREE ELEC 1 – Business Analytics
-- **Project:** From Data to Business: A Mini Feasibility Study and Functional Business Website
-- **School:** Cebu Eastern College, Inc. — College of Information Technology
-- **Section/Schedule:** FS 6:00–7:30 PM / Section 4
-- **Instructor:** Mr. Vincent John Cababan
-- **Date:** September 29, 2026
+1. Select a subject and jump to the order calculator.
 
-## Repository and Contribution Policy
+1. Choose a format, enable the practice-set add-on, and change the quantity.
 
-This repository should be public before submission. Each member must contribute meaningful work under their own GitHub account. Being listed as a collaborator is not enough: the instructor may review the commit history and changed files.
+1. Click **Calculate total** to generate the timestamped receipt.
 
-Read [COMMIT_GUIDE.md](COMMIT_GUIDE.md) before making changes.
+1. Move the profit simulator slider to compare revenue, expenses, and net profit.
 
-## License and Academic Use
+1. Show how the badge changes when sales move above or below the 10-set break-even threshold.
 
-This project was created for academic purposes. The CramCards business concept, branding, content, and code belong to the student group unless otherwise noted.
+1. Scroll to the exam countdown and explain the recommended pickup cutoff.
+
+## Group Members
+
+- Ashley Rochell B. Arcala
+
+- Michael Probadora
+
+- Geean Apolinar
+
+- Adrian Estores
+
+- Rolan Capul
+
+## Academic Use
+
+CramCards was created for an academic final project. Pricing, survey statistics, financial assumptions, and countdown dates are for project demonstration and educational purposes. The website does not process real orders or payments.
+
+## License
+
+This is an educational student project. Please contact the CramCards team before reusing its branding, business content, or materials for commercial purposes.
+
