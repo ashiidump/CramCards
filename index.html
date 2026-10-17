@@ -129,6 +129,12 @@
       <div id="simulator" class="rounded-3xl border border-slate-200 bg-white p-7 shadow-soft sm:p-9"><div class="mb-7 flex items-start justify-between"><div><h3 class="text-2xl font-bold text-navy">Profit simulator</h3><p class="mt-2 text-sm text-slate-500">Test the CramCards feasibility model.</p></div><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-amber-600"><i class="fa-solid fa-chart-pie"></i></span></div><div class="rounded-2xl bg-slate-50 p-5"><div class="flex items-end justify-between"><label for="sets-sold" class="text-sm font-semibold text-slate-600">Estimated sets sold / month</label><output id="sets-output" for="sets-sold" class="text-3xl font-bold text-navy">29</output></div><input id="sets-sold" type="range" min="0" max="100" value="29" class="mt-5 w-full cursor-pointer"><div class="mt-2 flex justify-between text-xs text-slate-400"><span>0 sets</span><span>100 sets</span></div></div><div id="breakeven-badge" class="mt-5 flex items-center gap-3 rounded-xl bg-emerald/10 px-4 py-3 text-sm font-bold text-emerald-700"><i class="fa-solid fa-circle-check"></i><span>Above break-even by 19 sets</span></div><div class="mt-7 grid grid-cols-3 gap-3"><div class="rounded-2xl border border-slate-100 p-4"><p class="text-xs font-semibold text-slate-400">Revenue</p><p id="revenue" class="mt-2 text-xl font-bold text-navy">₱1,160</p></div><div class="rounded-2xl border border-slate-100 p-4"><p class="text-xs font-semibold text-slate-400">Expenses</p><p id="expenses" class="mt-2 text-xl font-bold text-navy">₱780</p></div><div class="rounded-2xl border border-emerald/20 bg-emerald/5 p-4"><p class="text-xs font-semibold text-emerald-700">Net profit</p><p id="profit" class="mt-2 text-xl font-bold text-emerald-700">₱380</p></div></div><div class="mt-7 border-t border-slate-100 pt-5"><div class="flex justify-between text-sm"><span class="text-slate-500">Break-even threshold</span><strong class="text-navy">10 sets / month</strong></div><div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-100"><div id="profit-progress" class="h-full rounded-full bg-emerald transition-all" style="width:29%"></div></div></div></div>
     </div></section>
 
+    <!-- Study sprint tools -->
+    <section id="study-tools" class="bg-slate-100/80 py-20"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="mb-10"><p class="mb-3 text-sm font-bold uppercase tracking-[.2em] text-emerald">Study sprint tools</p><h2 class="text-4xl font-bold tracking-tight text-navy sm:text-5xl">Turn your review<br>into momentum.</h2></div><div class="grid gap-7 lg:grid-cols-2">
+      <div class="rounded-3xl bg-navy p-7 text-white shadow-soft sm:p-9"><div class="mb-7 flex items-start justify-between"><div><h3 class="text-2xl font-bold">Pomodoro timer</h3><p class="mt-2 text-sm text-slate-400">Focus for 25 minutes, then take a short break.</p></div><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald/20 text-emerald"><i class="fa-solid fa-stopwatch"></i></span></div><div class="text-center"><div id="timer-display" class="text-7xl font-bold tracking-tight text-white">25:00</div><p id="timer-status" class="mt-3 text-sm text-slate-400">Ready when you are.</p><div class="mt-7 flex justify-center gap-3"><button id="timer-start" class="rounded-xl bg-emerald px-5 py-3 font-bold text-white transition hover:bg-emerald-500"><i class="fa-solid fa-play mr-2"></i>Start</button><button id="timer-pause" class="rounded-xl border border-white/15 px-5 py-3 font-bold text-white transition hover:bg-white/10"><i class="fa-solid fa-pause mr-2"></i>Pause</button><button id="timer-reset" class="rounded-xl border border-white/15 px-5 py-3 font-bold text-white transition hover:bg-white/10"><i class="fa-solid fa-rotate-left mr-2"></i>Reset</button></div></div></div>
+      <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-soft sm:p-9"><div class="mb-7 flex items-start justify-between"><div><h3 class="text-2xl font-bold text-navy">Quick flashcard quiz</h3><p class="mt-2 text-sm text-slate-500">Test one high-yield programming concept.</p></div><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-amber-600"><i class="fa-solid fa-lightbulb"></i></span></div><div class="min-h-[180px] rounded-2xl bg-slate-50 p-6"><p id="flashcard-count" class="text-xs font-bold uppercase tracking-widest text-emerald">Card 1 of 3</p><h4 id="flashcard-question" class="mt-5 text-2xl font-bold leading-tight text-navy">What does HTML stand for?</h4><p id="flashcard-answer" class="mt-5 hidden rounded-xl border-l-4 border-gold bg-gold/10 p-4 text-sm leading-6 text-slate-700"></p></div><div class="mt-5 flex flex-wrap gap-3"><button id="flashcard-reveal" class="rounded-xl bg-navy px-5 py-3 font-bold text-white transition hover:bg-slate-800"><i class="fa-solid fa-eye mr-2"></i>Reveal answer</button><button id="flashcard-next" class="rounded-xl border border-slate-200 px-5 py-3 font-bold text-navy transition hover:bg-slate-50">Next card <i class="fa-solid fa-arrow-right ml-2"></i></button></div></div>
+    </div></div></section>
+
     <!-- Countdown -->
     <section class="bg-gradient-to-r from-emerald-700 to-emerald-500 text-white"><div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-5 py-12 sm:flex-row sm:items-center lg:px-8"><div><p class="mb-2 text-sm font-bold uppercase tracking-[.2em] text-emerald-100">Exam season countdown</p><h2 class="text-3xl font-bold">Make your next study day count.</h2><p id="cutoff-message" class="mt-2 text-emerald-100">Calculating your recommended campus pickup cutoff...</p></div><div class="flex gap-3 text-center"><div class="rounded-2xl bg-white/15 px-4 py-3 backdrop-blur"><strong id="count-days" class="block text-3xl font-bold">--</strong><span class="text-xs text-emerald-100">days</span></div><div class="rounded-2xl bg-white/15 px-4 py-3 backdrop-blur"><strong id="count-hours" class="block text-3xl font-bold">--</strong><span class="text-xs text-emerald-100">hours</span></div><div class="rounded-2xl bg-white/15 px-4 py-3 backdrop-blur"><strong id="count-minutes" class="block text-3xl font-bold">--</strong><span class="text-xs text-emerald-100">minutes</span></div></div></div></section>
   </main>
@@ -158,6 +164,10 @@ def show_toast(message):
     window.setTimeout(create_proxy(lambda: toast.classList.add("hidden")), 3000)
 
 
+def print_receipt(event=None):
+    window.print()
+
+
 def calculate_order(event):
     event.preventDefault()
     subject = document.getElementById("subject").value
@@ -178,8 +188,10 @@ def calculate_order(event):
       </div>
       <div class='space-y-2 text-sm'><div class='flex justify-between text-slate-300'><span>{format_name} × {quantity}</span><span>{peso(unit_price * quantity)}</span></div>{addon_line}<div class='mt-3 flex justify-between border-t border-emerald/20 pt-3 text-base font-bold text-white'><span>Estimated total</span><span class='text-gold'>{peso(total)}</span></div></div>
       <p class='mt-4 text-[11px] text-slate-400'><i class='fa-regular fa-clock mr-1'></i> Generated {timestamp}. This is a school-project estimate.</p>
+      <button id='print-receipt' class='mt-4 rounded-lg border border-emerald/30 px-3 py-2 text-xs font-bold text-emerald-200 transition hover:bg-emerald/20'><i class='fa-solid fa-print mr-2'></i>Print / save receipt</button>
     """
     receipt.classList.remove("hidden")
+    document.getElementById("print-receipt").addEventListener("click", create_proxy(print_receipt))
     show_toast("Receipt updated successfully")
 
 
@@ -225,18 +237,103 @@ def set_subject(event):
     document.getElementById("order").scrollIntoView({"behavior": "smooth"})
     show_toast(f"{subject} selected")
 
+
+# Pomodoro study timer.
+timer_remaining = 25 * 60
+timer_running = False
+
+
+def update_timer_display():
+    minutes = timer_remaining // 60
+    seconds = timer_remaining % 60
+    document.getElementById("timer-display").textContent = f"{minutes:02d}:{seconds:02d}"
+
+
+def timer_tick(event=None):
+    global timer_remaining, timer_running
+    if not timer_running:
+        return
+    if timer_remaining > 0:
+        timer_remaining -= 1
+        update_timer_display()
+    if timer_remaining == 0:
+        timer_running = False
+        document.getElementById("timer-status").textContent = "Session complete — take a 5-minute break."
+        show_toast("Study sprint complete!")
+
+
+def start_timer(event=None):
+    global timer_running
+    timer_running = True
+    document.getElementById("timer-status").textContent = "Focus mode is active. You’ve got this."
+
+
+def pause_timer(event=None):
+    global timer_running
+    timer_running = False
+    document.getElementById("timer-status").textContent = "Timer paused. Resume when you’re ready."
+
+
+def reset_timer(event=None):
+    global timer_remaining, timer_running
+    timer_running = False
+    timer_remaining = 25 * 60
+    update_timer_display()
+    document.getElementById("timer-status").textContent = "Ready when you are."
+
+
+# Lightweight Programming flashcard quiz.
+FLASHCARDS = [
+    ("What does HTML stand for?", "HyperText Markup Language — the structure of a web page."),
+    ("What is a variable?", "A named storage location used to hold a value that a program can read or change."),
+    ("What does a loop do?", "It repeats a block of instructions while a condition is true or for a defined number of times."),
+]
+flashcard_index = 0
+
+
+def render_flashcard():
+    question, answer = FLASHCARDS[flashcard_index]
+    document.getElementById("flashcard-count").textContent = f"Card {flashcard_index + 1} of {len(FLASHCARDS)}"
+    document.getElementById("flashcard-question").textContent = question
+    answer_node = document.getElementById("flashcard-answer")
+    answer_node.textContent = answer
+    answer_node.classList.add("hidden")
+    document.getElementById("flashcard-reveal").innerHTML = "<i class='fa-solid fa-eye mr-2'></i>Reveal answer"
+
+
+def reveal_flashcard(event=None):
+    answer_node = document.getElementById("flashcard-answer")
+    answer_node.classList.remove("hidden")
+    document.getElementById("flashcard-reveal").innerHTML = "<i class='fa-solid fa-eye-slash mr-2'></i>Answer revealed"
+
+
+def next_flashcard(event=None):
+    global flashcard_index
+    flashcard_index = (flashcard_index + 1) % len(FLASHCARDS)
+    render_flashcard()
+
+
 # PyScript event bindings: Python is the source of truth for interactions.
 form_proxy = create_proxy(calculate_order)
 slider_proxy = create_proxy(update_simulator)
 countdown_proxy = create_proxy(update_countdown)
+timer_tick_proxy = create_proxy(timer_tick)
 document.getElementById("order-form").addEventListener("submit", form_proxy)
 document.getElementById("sets-sold").addEventListener("input", slider_proxy)
+document.getElementById("timer-start").addEventListener("click", create_proxy(start_timer))
+document.getElementById("timer-pause").addEventListener("click", create_proxy(pause_timer))
+document.getElementById("timer-reset").addEventListener("click", create_proxy(reset_timer))
+document.getElementById("flashcard-reveal").addEventListener("click", create_proxy(reveal_flashcard))
+document.getElementById("flashcard-next").addEventListener("click", create_proxy(next_flashcard))
 for link in document.querySelectorAll("[data-subject]"):
     link.addEventListener("click", create_proxy(set_subject))
 
 update_simulator()
 update_countdown()
+update_timer_display()
+render_flashcard()
 window.setInterval(countdown_proxy, 60000)
+window.setInterval(timer_tick_proxy, 1000)
   </script>
 </body>
 </html>
